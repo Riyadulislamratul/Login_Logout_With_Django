@@ -8,6 +8,7 @@
 
     <!-- IMPORTANT: enctype for image upload -->
     <form action="#" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
       <label for="username">Username</label>
       <input id="username" name="username" type="text" placeholder="Enter username" required />
 
@@ -25,11 +26,11 @@
       <label for="email">Email address</label>
       <input id="email" name="email" type="email" placeholder="example@email.com" required />
 
-      <label for="phone">Phone number</label>
-      <input id="phone" name="phone" type="tel" placeholder="01XXXXXXXXX" required />
+      <!-- <label for="phone">Phone number</label>
+      <input id="phone" name="phone" type="tel" placeholder="01XXXXXXXXX" required /> -->
 
-      <label for="profile_image">Profile image</label>
-      <input id="profile_image" name="profile_image" type="file" accept="image/*" required />
+      <!-- <label for="profile_image">Profile image</label>
+      <input id="profile_image" name="profile_image" type="file" accept="image/*" required /> -->
 
       <label for="password">Password</label>
       <input id="password" name="password" type="password" placeholder="Enter password" minlength="6" required />
