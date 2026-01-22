@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -31,9 +32,14 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('dashboard')
         else:
             return HttpResponse("Invalid credentials. Please try again.")
     return render(request, 'login.html')
+
+
+@login_required
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 
